@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Waleed Hassan | CS Portfolio</title>
+  <!-- Google Fonts + Font Awesome Icons (pure CSS enhancement) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* navigation */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e293b, #2d3a4b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e293b;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* buttons & sections */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1.2rem;
+    }
+
+    /* hero */
+    .hero {
+      padding: 4rem 0 3rem 0;
+      background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      background: #e0f2fe;
+      color: #0284c7;
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #3b82f6, #6366f1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      color: #334155;
+      margin: 1rem 0 1.5rem 0;
+      border-left: 3px solid #94a3b8;
+      padding-left: 1rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 1.8rem 0;
+    }
+
+    .tech-badge {
+      background: white;
+      border-radius: 40px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      color: #1e293b;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #0f172a;
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #cbd5e1;
+      background: white;
+      color: #1e293b;
+    }
+
+    .btn-outline:hover {
+      border-color: #3b82f6;
+      color: #2563eb;
+      background: #f8fafc;
+    }
+
+    .hero-avatar {
+      flex: 0.7;
+      text-align: center;
+    }
+
+    .avatar-circle {
+      width: 260px;
+      height: 260px;
+      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+      border: 4px solid white;
+    }
+
+    .avatar-circle i {
+      font-size: 6rem;
+      color: #334155;
+    }
+
+    /* projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
+      border: 1px solid #eef2ff;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+      border-color: #cbdff2;
+    }
+
+    .project-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .project-tags span {
+      background: #f1f5f9;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+
+    .project-desc {
+      color: #334155;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* skills & tools */
+    .skills-wrapper {
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      border: 1px solid #eef2ff;
+    }
+
+    .skill-category {
+      margin-bottom: 2rem;
+    }
+
+    .skill-category h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-pill {
+      background: #f1f5f9;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #0f172a;
+      transition: 0.1s;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* about & education */
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      border: 1px solid #eef2ff;
+    }
+
+    .about-text {
+      flex: 2;
+    }
+
+    .edu-card {
+      flex: 1.2;
+      background: #f8fafc;
+      border-radius: 1.2rem;
+      padding: 1.3rem;
+    }
+
+    .edu-card i {
+      font-size: 1.6rem;
+      color: #2563eb;
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-card h3 {
+      font-weight: 700;
+    }
+
+    /* contact & footer */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      background: #0f172a;
+      border-radius: 2rem;
+      padding: 2.5rem;
+      color: white;
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .contact-details a {
+      color: #cbd5e1;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: 0.2s;
+    }
+
+    .contact-details a:hover {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 1.6rem;
+    }
+
+    .social-links a {
+      color: #94a3b8;
+      transition: 0.2s;
+    }
+
+    .social-links a:hover {
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem;
+      font-size: 0.85rem;
+      color: #475569;
+      border-top: 1px solid #e2e8f0;
+      background: white;
+    }
+
+    @media (max-width: 780px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+      .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-sub {
+        border-left: none;
+        text-align: center;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .section-title {
+        text-align: center;
+        border-left: none;
+        border-bottom: 3px solid #3b82f6;
+        display: inline-block;
+        padding-bottom: 0.3rem;
+        margin-bottom: 2rem;
+      }
+      .about-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Waleed <span>Hassan</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-code"></i> BS Computer Science
+          </div>
+          <h1>Waleed Hassan <br><span class="highlight">Developer & Creator</span></h1>
+          <div class="hero-sub">
+            Building robust web & mobile solutions | Django • Flask • React Native • Java
+          </div>
+          <div class="tech-stack">
+            <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
+            <span class="tech-badge"><i class="fab fa-java"></i> Java</span>
+            <span class="tech-badge"><i class="fab fa-js"></i> JS/TS</span>
+            <span class="tech-badge"><i class="fas fa-database"></i> SQL/NoSQL</span>
+            <span class="tech-badge"><i class="fab fa-android"></i> XML/Android</span>
+          </div>
+          <div class="btn-group">
+            <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-down"></i> View Projects</a>
+            <a href="#contact" class="btn btn-outline"><i class="far fa-envelope"></i> Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-avatar">
+          <div class="avatar-circle">
+            <i class="fas fa-user-astronaut"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</h2>
+        <div class="projects-grid">
+          <!-- Blog Website -->
+          <div class="project-card">
+            <div class="project-icon"><i class="fab fa-blogger-b"></i></div>
+            <h3>BlogVerse</h3>
+            <div class="project-tags"><span>Django</span><span>HTML/CSS</span><span>PostgreSQL</span></div>
+            <p class="project-desc">Full-featured blog platform with authentication, comments, and rich text editor. Built with Django & Bootstrap. Deployed on PythonAnywhere.</p>
+          </div>
+          <!-- Weather App (Mobile) -->
+          <div class="project-card">
+            <div class="project-icon"><i class="fas fa-cloud-sun-rain"></i></div>
+            <h3>WeatherWise</h3>
+            <div class="project-tags"><span>Flask</span><span>OpenWeather API</span><span>JavaScript</span><span>PWA</span></div>
+            <p class="project-desc">Real-time weather app with 5-day forecast, geolocation, and responsive UI. Works as a progressive web app & mobile-friendly.</p>
+          </div>
+          <!-- Restaurant Management System -->
+          <div class="project-card">
+            <div class="project-icon"><i class="fas fa-utensils"></i></div>
+            <h3>RestoManager</h3>
+            <div class="project-tags"><span>Python</span><span>Flask</span><span>SQLite</span><span>Bootstrap</span></div>
+            <p class="project-desc">Complete restaurant management: table reservations, menu management, order tracking, and bill generation. Role-based login (admin/staff).</p>
+          </div>
+          <!-- Mobile App: Android Weather (Java) -->
+          <div class="project-card">
+            <div class="project-icon"><i class="fab fa-android"></i></div>
+            <h3>ClimateCast (Android)</h3>
+            <div class="project-tags"><span>Java</span><span>XML</span><span>Retrofit</span><span>Material Design</span></div>
+            <p class="project-desc">Native Android weather app using OpenWeather API, GPS location, and smooth animations. Showcases MVVM pattern and efficient networking.</p>
+          </div>
+          <!-- E-Learning Prototype (Django) -->
+          <div class="project-card">
+            <div class="project-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <h3>EduFlow LMS</h3>
+            <div class="project-tags"><span>Django</span><span>JavaScript</span><span>Chart.js</span><span>Tailwind</span></div>
+            <p class="project-desc">Learning management system with course enrollment, progress tracking, and video lessons. Integrated with Django REST framework.</p>
+          </div>
+          <!-- Portfolio & CMS -->
+          <div class="project-card">
+            <div class="project-icon"><i class="fas fa-cubes"></i></div>
+            <h3>DevPortfolio CMS</h3>
+            <div class="project-tags"><span>Flask</span><span>MongoDB</span><span>Jinja2</span></div>
+            <p class="project-desc">Custom portfolio CMS allowing dynamic project addition, blog posts, and contact forms. Built from scratch with Flask and MongoDB.</p>
+          </div>
+        </div>
+        <div style="margin-top: 2rem; text-align: center;">
+          <p style="color:#334155;"><i class="fas fa-layer-group"></i> + many more academic & freelance projects (Python scripts, automation, API integrations)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Technologies -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-cog"></i> Tech Arsenal & Tools</h2>
+        <div class="skills-wrapper">
+          <div class="skill-category">
+            <h4><i class="fab fa-python"></i> Languages & Frameworks</h4>
+            <div class="skill-items">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">Django</span>
+              <span class="skill-pill">Flask</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">JavaScript (ES6+)</span>
+              <span class="skill-pill">HTML5/CSS3</span>
+              <span class="skill-pill">XML</span>
+              <span class="skill-pill">SQL</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4><i class="fas fa-mobile-alt"></i> Mobile & Frontend</h4>
+            <div class="skill-items">
+              <span class="skill-pill">Android Dev (Java/XML)</span>
+              <span class="skill-pill">React Native (Basics)</span>
+              <span class="skill-pill">Bootstrap/Tailwind</span>
+              <span class="skill-pill">jQuery</span>
+              <span class="skill-pill">Responsive Design</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4><i class="fas fa-server"></i> Databases & Tools</h4>
+            <div class="skill-items">
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">SQLite</span>
+              <span class="skill-pill">MongoDB</span>
+              <span class="skill-pill">Git/GitHub</span>
+              <span class="skill-pill">REST APIs</span>
+              <span class="skill-pill">Postman</span>
+              <span class="skill-pill">Docker (basic)</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4><i class="fas fa-brain"></i> Core CS & Methodologies</h4>
+            <div class="skill-items">
+              <span class="skill-pill">Data Structures</span>
+              <span class="skill-pill">Algorithms</span>
+              <span class="skill-pill">OOP</span>
+              <span class="skill-pill">Agile/Scrum</span>
+              <span class="skill-pill">UI/UX Principles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About & Education -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-user-graduate"></i> About Me</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p style="font-size: 1.05rem; margin-bottom: 1rem;">Hi, I'm <strong>Waleed Hassan</strong>, a passionate <strong>BS Computer Science student</strong> with a drive to create impactful software solutions. I thrive on full-stack web development, crafting mobile apps, and exploring emerging tech.</p>
+            <p style="margin-bottom: 1rem;">Throughout my academic journey, I've developed robust applications using <strong>Django, Flask, Java (Android)</strong> and modern JavaScript. I love turning ideas into polished, user-friendly products — from restaurant management dashboards to real-time weather apps. Constantly learning and collaborating, I enjoy bridging the gap between design and functionality.</p>
+            <p><i class="fas fa-rocket"></i> Currently exploring cloud deployment (AWS, Heroku) and expanding my knowledge in AI/ML integrations. Open to internships and collaborative dev roles.</p>
+          </div>
+          <div class="edu-card">
+            <i class="fas fa-university"></i>
+            <h3>BS Computer Science</h3>
+            <p style="margin: 0.4rem 0; color: #1e293b;">University of Modern Sciences (UMS) <br> 2022 – 2026 (Expected)</p>
+            <p style="font-size: 0.85rem; color: #475569;">CGPA: 3.7/4.0 | Dean’s list | Coursework: Software Engineering, Web Dev, Mobile Computing, Databases</p>
+            <hr style="margin: 1rem 0; border-color:#e2e8f0;">
+            <i class="fas fa-certificate"></i>
+            <p><strong>Certifications:</strong> Python Institute PCEP, Meta Frontend Developer (Coursera), Google Android Basics</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Social -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-flex">
+          <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <p style="margin: 0.5rem 0 1rem 0; opacity: 0.85;">I'm always open to discussing new projects, creative ideas, or opportunities.</p>
+            <div class="contact-details">
+              <a href="mailto:waleed.hassan@example.com"><i class="fas fa-envelope"></i> waleed.hassan@csportfolio.me</a>
+              <a href="#"><i class="fas fa-phone-alt"></i> +92 300 123 4567</a>
+              <a href="#"><i class="fab fa-github"></i> github.com/waleedhassan</a>
+              <a href="#"><i class="fab fa-linkedin"></i> linkedin.com/in/waleed-hassan</a>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Waleed Hassan — BS Computer Science. Built with pure HTML & CSS. All projects and skills are based on real expertise.</p>
+    <p style="margin-top: 0.5rem;"><i class="fas fa-code"></i> Django • Flask • HTML/CSS • JS • Python • Java • XML</p>
+  </footer>
+
+  <!-- simple smooth scroll behavior without extra JS, just inline -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .btn, .nav-links a, .project-card, .skill-pill {
+      transition: all 0.2s ease;
+    }
+  </style>
+</body>
+</html>
